@@ -1,0 +1,93 @@
+body {
+  font-family: "Gill Sans", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#header {
+  position: relative;
+  margin-top: -22px;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-top: 20px;
+  background: #40A497;
+}
+
+.connect {
+  text-align: right;
+  margin-right: 25px;
+}
+
+ul#menu_horizontal {
+width : auto;
+height : 30px;
+margin : 2em 0 0 0;
+padding : 0;
+border : 1px dashed black;
+list-style-type : none;
+}
+
+ul#menu_horizontal li {
+padding : 0 0.5em;
+line-height : 30px;
+}
+
+ul#menu_horizontal li.bouton_gauche {
+float : left;
+border-right : 1px dashed black;
+}
+
+ul#menu_horizontal li.bouton_droite {
+float : right;
+border-left : 1px dashed black;
+}
+
+ul#menu_horizontal a {
+color : black;
+text-decoration : none;
+padding : 0 0.5em;
+font :  0.8em "Trebuchet MS";
+}
+
+ul#menu_horizontal a:hover { text-decoration : underline; }
+
+ul#menu_horizontal a img {
+border : none;
+padding :  0 0.3em;
+}
+
+img {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#footer {
+   position: absolute;
+   margin-left: -10px;
+   margin-right: -10px;
+   bottom: 0;
+   width: 100%;
+   background: #40A497;
+ }
+
+#config {
+  position: absolute;
+  width: 500px;
+  left: 400px;
+  margin-top: 15px;
+  padding-left: 20px;
+  border: 1px black solid;
+}
