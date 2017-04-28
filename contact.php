@@ -7,16 +7,16 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.css">
+
   </head>
   <body>
-    <?php include('./include/session.php') ?>
 
     <!-- HEADER -->
     <div id="header">
     <h1>Bienvenue sur le Mirroir Debian du GRETA</h1>
     <p style="text-align:center">Cette page permet de visualiser le fonctionnement et la configuration du Mirroir Debian</p>
     <p class="connect"><?php
-    include('./include/userConnected.php');
+    include('./info/userConnected.php');
     if ($_SESSION['login_user'] == "root") {
       echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
       ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
@@ -39,40 +39,62 @@
     <!-- CONTENT -->
     <div id="content">
 
-      <?php
-$action=$_REQUEST['action'];
-if ($action=="")    /* display the contact form */
-    {
-    ?>
-    <form  action="" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="action" value="submit">
-    Nom:<br>
-    <input name="name" type="text" value="" size="30"/><br>
-    Email:<br>
-    <input name="email" type="text" value="" size="30"/><br>
-    Message:<br>
-    <textarea name="message" rows="7" cols="30"></textarea><br>
-    <input type="submit" value="Send email"/>
-    </form>
-    <?php
-    }
-else                /* send the submitted data */
-    {
-    $name=$_REQUEST['name'];
-    $email=$_REQUEST['email'];
-    $message=$_REQUEST['message'];
-    if (($name=="")||($email=="")||($message==""))
-        {
-		echo "All fields are required, please fill <a href=\"\">the form</a> again.";
-	    }
-    else{
-	    $from="From: $name<$email>\r\nReturn-path: $email";
-        $subject="Message sent using your contact form";
-		// mail("youremail@yoursite.com", $subject, $message, $from);
-		echo "Email sent!";
-	    }
-    }
-?>
+      <!-- ========================================= -->
+  		<!-- $CONTACT SECTION                          -->
+  		<!-- ========================================= -->
+
+  			<div id="contactForm">
+
+  						<!-- CONTACT FORM -->
+  						<div id="contact-panel-2" class="tab-pane">
+
+  							<!-- RESULTS MESSAGES -->
+
+  							<!-- #CONTACT FORM -->
+  							<form action="./include/contact/request.php" id="message-form" role="form" class="contact-form" method="post">
+  								<div class="row form-list">
+
+  									<!-- NAME -->
+  									<div class="col-xs-12 col-md-6 col-lg-4">
+  										<label class="bold text-capitalize">Nom *</label>
+  										<input type="text" name="contact_name" class="form-control" required>
+  									</div>
+
+  									<!-- EMAIL -->
+  									<div class="col-xs-12 col-md-6 col-lg-4">
+  										<label class="bold text-capitalize">Email *</label>
+  										<input type="email" name="contact_email" class="form-control" required>
+  									</div>
+
+  									<!-- SUBJECT -->
+  									<div class="col-xs-12 col-md-6 col-lg-4">
+  										<label class="bold text-capitalize">Sujet</label>
+  										<input type="text" name="contact_subject" class="form-control">
+  									</div>
+
+  									<div class="col-xs-12">
+  										<label class="bold text-capitalize">Message *</label>
+  										<textarea name="contact_message" class="form-control" rows="15" required></textarea>
+  									</div>
+
+  									<!-- CAPTCHA & SUBMIT -->
+  									<div class="col-xs-12">
+
+  										<div class="inline-block captcha-holder">
+  											<input type="text" name="#" class="captcha-number" value="1" readonly> +
+  											<input type="text" name="#" class="captcha-number" value="1" readonly> =
+  											<input id="captcha" class="captcha form-control" type="text" name="captcha" maxlength="2" required>
+  										</div><!--
+  										--><input type="submit" class="btn btn--main-inverted" value="Submit message">
+  									</div>
+  								</div>
+  							</form>
+
+  						</div>
+
+  					</div>
+
+  				</div>
 
     </div>
     <!-- FOOTER -->
@@ -80,5 +102,26 @@ else                /* send the submitted data */
       <hr/>
       <p style="text-align:center; font-style: italic;">Le Mirroir Debian a été installé au GRETA par <a href="https://anthonylasserre.com" target="_blank">Anthony LASSERRE</a>, étudiant BTS SIO Promo2015
     </div>
+
+    <!-- ========================================= -->
+		<!-- $SCRIPTS                                  -->
+		<!-- ========================================= -->
+
+		<!-- #LIBS -->
+		<script src="js/libs/jquery-latest.min.js"></script>
+		<script src="js/libs/modernizr-latest.min.js"></script>
+		<script src="js/libs/bootstrap.min.js"></script>
+
+		<!-- #PLUGINS -->
+		<script src="js/plugins/jquery.malihu.PageScroll2id.min.js"></script>
+		<script src="js/plugins/jquery.shuffle.min.js"></script>
+		<script src="js/plugins/jquery.sticky-kit.min.js"></script>
+		<script src="js/plugins/jquery.magnific-popup.min.js"></script>
+		<script src="js/plugins/jquery.quovolver.min.js"></script>
+		<script src="js/plugins/jquery.inview.min.js"></script>
+		<script src="js/plugins/jquery.countTo.min.js"></script>
+
+		<!-- #CUSTOM -->
+		<script src="js/script.js"></script>
   </body>
 </html>

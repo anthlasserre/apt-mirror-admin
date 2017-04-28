@@ -45,7 +45,7 @@
     <h1>Bienvenue sur le Mirroir Debian du GRETA</h1>
     <p style="text-align:center">Cette page permet de visualiser le fonctionnement et la configuration du Mirroir Debian</p>
     <p class="connect"><?php
-    include('./include/userConnected.php');
+    include('./info/userConnected.php');
     if ($_SESSION['login_user'] == "root") {
       echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
       ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
@@ -57,10 +57,10 @@
 
     <!-- MENU -->
     <ul id="menu_horizontal">
-      <li class="bouton_gauche"><i class="fa fa-home"></i> <a href="./index.php">Accueil</a></li>
-      <li class="bouton_gauche"><i class="fa fa-cogs"></i> <a href="./configuration.php">Configuration</a></li>
-      <li class="bouton_gauche"><i class="fa fa-wrench"></i> <a href="./installation.php">Installation</a></li>
-      <li class="bouton_droite"><i class="fa fa-envelope"></i> <b>Contact</b></li>
+      <li class="bouton_gauche"><i class="fa fa-home"></i> <a href="../index.php">Accueil</a></li>
+      <li class="bouton_gauche"><i class="fa fa-cogs"></i> <a href="../configuration.php">Configuration</a></li>
+      <li class="bouton_gauche"><i class="fa fa-wrench"></i> <a href="../installation.php">Installation</a></li>
+      <li class="bouton_droite"><i class="fa fa-envelope"></i> <a href="../contact.php">Contact</a></li>
     </ul>
     <hr/>
     </div>

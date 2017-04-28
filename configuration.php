@@ -16,7 +16,7 @@
     <h1>Bienvenue sur le Mirroir Debian du GRETA</h1>
     <p style="text-align:center">Cette page permet de visualiser le fonctionnement et la configuration du Mirroir Debian</p>
     <p class="connect"><?php
-    include('./include/userConnected.php');
+    include('./info/userConnected.php');
     if ($_SESSION['login_user'] == "root") {
       echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
       ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
@@ -38,22 +38,16 @@
 
     <!-- CONTENT -->
     <div id="content">
-      <form method="get" action="./config.php" >
-        Forcer le téléchargement des paquets <input name="forceCron" type="submit" value="Forcer"></input><br>
-        <?php
-        if ($_GET["apache"]="Redemarrer") {
-          echo shell_exec('systemctl restart apache2.service');
-        }
-         ?>
+		<!-- Connexion FTP/SSH localhost pour execution cmd-->
+
+
+		<!-- Redemarrage Apache -->
+	  <form method="get" action="" >
         Redémarrer Apache <input name="apache" type="submit" value="Redemarrer"></input>
       </form>
-      <?php
-      if ($_GET["forceCron"]="Forcer") {
-        echo shell_exec('/usr/bin/apt-mirror');
-      }
-      ?>
 
-    </div>
+      	<!-- Traitement redémarrage | Execution du script -->
+	</div>
     <!-- FOOTER -->
     <div id="footer">
       <hr/>
