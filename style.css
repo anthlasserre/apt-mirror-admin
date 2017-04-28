@@ -1,3 +1,28 @@
+/*- THIS STYLE.CSS IS CREATED BY ANTHONY LASSERRE FROM SCRATCH -*/
+
+
+/*----------------------------------*/
+/*-------------INDEX----------------*/
+/*----------------------------------*/
+
+/*
+ 1 - BODY
+ 2 - DIV --> HEADER - CONTENT- FOOTER
+ 3 - CLASS
+ 4 - DIV --> MENU
+ 5 - DIV --> INSTALLATION CLIENT - INSTALLATION SERVEUR
+ 6 - MODULES
+
+
+
+
+*/
+
+
+/*----------------1-----------------*/
+/*---------------BODY---------------*/
+/*----------------------------------*/
+
 body {
   font-family: "Gill Sans", sans-serif;
 }
@@ -5,6 +30,9 @@ body {
 h1 {
   text-align: center;
 }
+/*---------------2------------------*/
+/* DIV --> HEADER - CONTENT- FOOTER */
+/*----------------------------------*/
 
 #header {
   position: relative;
@@ -15,10 +43,62 @@ h1 {
   background: #40A497;
 }
 
+#content {
+  margin-bottom: 200px;
+}
+
+#content > img {
+  position: absolute;
+  margin-left: 20px;
+}
+
+#footer {
+   position: fixed;
+   margin-left: -10px;
+   margin-right: -10px;
+   bottom: 0px;
+   width: 100%;
+   background: #40A497;
+ }
+
+#footer > hr {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/*---------------3------------------*/
+/*-------------CLASS----------------*/
+/*----------------------------------*/
+
 .connect {
   text-align: right;
   margin-right: 25px;
 }
+
+p.connect {
+  margin-top:-20px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+p.code {
+  background: black;
+  color: white;
+}
+
+/*------------4-------------*/
+/*-------DIV --> MENU ------*/
+/*--------------------------*/
 
 ul#menu_horizontal {
 width : auto;
@@ -58,25 +138,9 @@ border : none;
 padding :  0 0.3em;
 }
 
-#content {
-  margin-bottom: 200px;
-}
-
-#content > img {
-  position: absolute;
-  margin-left: 20px;
-}
-
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
+/*--------------------------5-------------------------*/
+/*-DIV --> INSTALLATION CLIENT - INSTALLATION SERVEUR-*/
+/*----------------------------------------------------*/
 
 #installationClient {
   border: 1px black solid;
@@ -148,9 +212,12 @@ padding :  0 0.3em;
   margin-left: 20px;
 }
 
-p#code {
-  background: black;
-  color: white;
+/*------------8-------------*/
+/*--------OTHERS DIV--------*/
+/*--------------------------*/
+
+#action {
+  position: relative;
 }
 
 #contactForm {
@@ -164,31 +231,11 @@ p#code {
   bottom: 0px;
 }
 
-#footer {
-   position: fixed;
-   margin-left: -10px;
-   margin-right: -10px;
-   bottom: 0px;
-   width: 100%;
-   background: #40A497;
- }
+/*------------7-------------*/
+/*----------MODULES---------*/
+/*--------------------------*/
 
-#footer > hr {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-#aptmirror {
-  position: relative;
-  width: 500px;
-  left: 300px;
-  margin-top: 15px;
-  padding-left: 20px;
-  border: 1px black solid;
-}
-
-#apache {
+#aptmirror, #apache, #mysql, #phpmyadmin {
   position: relative;
   width: 500px;
   left: 300px;

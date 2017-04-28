@@ -1,30 +1,31 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
-    <title>Mirroir Debian GRETA</title>
-    <link rel="icon" type="image/png" href="./images/aptMirrorLogo.png" />
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.css">
+<head>
+  <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
+  <title>Mirroir Debian Admin | Control Panel</title>
+  <link rel="icon" type="image/png" href="./images/aptMirrorLogo.png" />
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.css">
+</head>
+<body>
 
-  </head>
-  <body>
-
-    <!-- HEADER -->
-    <div id="header">
-    <h1>Bienvenue sur le Mirroir Debian du GRETA</h1>
-    <p style="text-align:center">Cette page permet de visualiser le fonctionnement et la configuration du Mirroir Debian</p>
-    <p class="connect"><?php
-    include('./info/userConnected.php');
-    if ($_SESSION['login_user'] == "root") {
-      echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
-      ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
-    <?php }
-    else {
-      ?><p class="connect"><a href="./include/login.php">Se connecter</a></p><?php
-    }
-    ?>
+  <!-- HEADER -->
+  <div id="header">
+  <h1>Mirroir Debian Admin | Control Panel</h1>
+  <p style="text-align:center; margin-top:-22px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
+                                Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+                                Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
+  <p class="connect"><?php
+  include('./info/userConnected.php');
+  if ($_SESSION['login_user'] == "root") {
+    echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
+    ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
+  <?php }
+  else {
+    ?><p class="connect"><a href="./include/login.php">Se connecter</a></p><?php
+  }
+  ?>
 
     <!-- MENU -->
     <ul id="menu_horizontal">

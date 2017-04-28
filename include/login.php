@@ -1,5 +1,4 @@
 <?php
-   include("./config.php");
    session_start();
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +18,7 @@
       if($num_rows == 1) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
-         header("location: ../index.php");
+         header("location: ../configuration.php");
 
       } else {
          $error = "Votre identifiant ou mot de passe est invalide";
@@ -38,7 +37,6 @@
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css">
   </head>
   <body>
-    <?php include('./include/session.php') ?>
 
     <!-- HEADER -->
     <div id="header">
@@ -48,10 +46,10 @@
     include('./info/userConnected.php');
     if ($_SESSION['login_user'] == "root") {
       echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
-      ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
+      ?><p class="connect"><a href="./logout.php">Se déconnecter</a></p>
     <?php }
     else {
-      ?><p class="connect"><a href="./include/login.php">Se connecter</a></p><?php
+      ?><p class="connect"><a href="./login.php">Se connecter</a></p><?php
     }
     ?>
 

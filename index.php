@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
-    <title>Mirroir Debian GRETA | Control Panel</title>
+    <title>Mirroir Debian Admin | Control Panel</title>
     <link rel="icon" type="image/png" href="./images/aptMirrorLogo.png" />
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
@@ -12,8 +12,10 @@
 
     <!-- HEADER -->
     <div id="header">
-    <h1>Mirroir Debian GRETA | Control Panel</h1>
-    <p style="text-align:center">Cette page permet de visualiser le fonctionnement de configurer le serveur Mirroir Debian</p>
+    <h1>Mirroir Debian Admin | Control Panel</h1>
+    <p style="text-align:center; margin-top:-22px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
+                                  Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+                                  Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
     <p class="connect"><?php
     include('./info/userConnected.php');
     if ($_SESSION['login_user'] == "root") {
@@ -39,6 +41,7 @@
 
     <!-- CONTENT -->
     <div id="content">
+      <h2 style="text-align:center">Voici les paquets utilisés par aptMirrorAdmin</h2>
       <img src="./images/aptMirrorLogo.png" alt="aptMirror Logo" height="190px">
       <div id="aptmirror">
           <p><?php
@@ -57,12 +60,25 @@
           <p><?php
           include "./info/apacheVersion.php";
           echo '<b>Nom du paquet: </b> apache2 <br>';
-          echo '<b>Version serveur: </b> ' . substr($apacheVersion,16) . "<br>";
+          echo '<b>Version serveur: </b> ' . substr($apacheVersion,16,24) . "<br>";
         ?></p>
       </div>
-      <div id="syslog">
-        <?php echo $syslog = shell_exec('tail -f /var/log/syslog');
-        ?>
+      <img src="./images/mysqlLogo.png" alt="mySQL Logo" height="100px" width="250px" style="margin-top:10px">
+      <div id="mysql">
+          <p><?php
+          include "./info/mysqlVersion.php";
+          echo '<b>Nom du paquet: </b> mysql-server <br>';
+          echo '<b>Version serveur: </b> ' . substr($mysqlVersion,12) . "<br>";
+        ?></p>
+      </div>
+      <img src="./images/phpmyadminLogo.png" alt="phpmyadmin Logo" height="150px" width="250px" style="margin-top:0px">
+      <div id="phpmyadmin">
+          <p><?php
+          include "./info/phpmyadminVersion.php";
+          echo '<b>Nom du paquet: </b> phpmyadmin <br>';
+          echo '<b>Version: </b> ' . "<br>";
+          echo '<b>Lien: </b> <a href="' . 'http://' . $_SERVER['HTTP_HOST'] . '/phpmyadmin' . "\" target=\"_blank\">phpmyadmin</a><br>";
+        ?></p>
       </div>
     </div>
     <!-- FOOTER -->
