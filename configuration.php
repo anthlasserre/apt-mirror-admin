@@ -42,14 +42,28 @@
     <div id="action">
 
     <?php
-    if (!empty($_GET['run'])) {
-      shell_exec("/srv/www/scripts/apacheRestart.sh");
-      header('Location: ./configuration.php?success=true');
+    if ($_SESSION['login_user'] == "root") {
+    	if (!empty($_GET['restart'])) {
+      		shell_exec("/srv/www/scripts/apacheRestart.sh");
+      		header('Location: ./configuration.php?success=true');
+      		}
+     	if (!empty($_GET['force'])) {
+      		shell_exec("/srv/www/scripts/forceDownload.sh");
+      		header('Location: ./configuration.php?success=true');
+      		}
+      	if (!empty($_GET['display'])) {
+      		header("Refresh: 1;Location: ./configuration.php?success=true");
+			$output = shell_exec('tail -f /var/log/syslog');
+			echo "<pre>$output</pre>";
+			}
     }
     ?>
 
-    <!-- This link will add ?run=true to your URL, myfilename.php?run=true -->
-    <a href="?run=true">Redémarrer Apache</a>
+    <!-- Actions -->
+    <a href="?restart=apache">Redémarrer Apache</a><br>
+    <a href="?force=download">Forcer le téléchargement des paquets</a><br>
+    <a href="?display=syslog">Fichier syslog</a>
+    
 
     </div>
 
