@@ -5,8 +5,8 @@
   <title>Mirroir Debian Admin | Control Panel</title>
   <link rel="icon" type="image/png" href="./images/aptMirrorLogo.png" />
   <link rel="stylesheet" type="text/css" href="./style.css">
-  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="./css/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/font-awesome/font-awesome.css">
 </head>
 <body>
   <?php include('./include/session.php') ?>
