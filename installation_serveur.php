@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
-  <title>Mirroir Debian Admin | Control Panel</title>
+  <title>aptMirrorAdmin - Piloter votre mirroir debian en toute sécurité.</title>
   <link rel="icon" type="image/png" href="./images/aptMirrorLogo.png" />
   <link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootswatch_solar.css">
   <link rel="stylesheet" href="./css/font-awesome/font-awesome.min.css">
@@ -16,13 +16,13 @@
 
   <!-- HEADER -->
   <div id="header">
-  <h1 class="head-title">Mirroir Debian Admin | Control Panel</h1>
+  <h1 class="head-title"><img src="./images/aptMirrorAdminLogo.png" height="50px"/>aptMirrorAdmin</h1>
   <p style="text-align:center; margin-top:-10px">Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
                                 Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
   <p class="connect"><?php
   include('./info/userConnected.php');
   if ($_SESSION['login_user'] == "root") {
-    echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
+    echo 'Bonjour ' . $_SESSION['login_user'] . '  <i class="fa fa-user-circle-o"></i>'  . '<br>';
     ?><p class="connect"><a href="./include/logout.php">Se déconnecter</a></p>
   <?php }
   else {
