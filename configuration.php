@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/font-awesome/font-awesome.css">
 </head>
 <body>
+  <?php include "./include/session.php" ?>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -17,8 +18,7 @@
   <!-- HEADER -->
   <div id="header">
   <h1 class="head-title">Mirroir Debian Admin | Control Panel</h1>
-  <p style="text-align:center; margin-top:-10px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
-                                Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+  <p style="text-align:center; margin-top:-10px">Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
                                 Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
   <p class="connect"><?php
   include('./info/userConnected.php');
@@ -43,7 +43,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./index.php">AptMirrorAdmin</a>
+        <a class="navbar-brand" href="./index.php">aptMirrorAdmin</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -74,29 +74,55 @@
     <!-- CONTENT -->
     <div id="content">
     <div id="action">
-
+      <div class="panel panel-default" style="width:40%;position:relative">
+        <div class="panel-heading">Apache<i style="text-align:right;color:green;padding-left:20px;"class="fa fa-toggle-on fa-lg"></i></div>
+        <div class="panel-body">
+          <a href="?restart=apache" class="btn btn-default">Redémarrer Apache</a><br>
+        </div>
+      </div>
+      <div class="panel panel-default" style="width:40%;position:relative">
+        <div class="panel-heading">Apt-Mirror<i style="text-align:right;color:green;padding-left:20px;"class="fa fa-toggle-on fa-lg"></i></div>
+        <div class="panel-body">
+          <a href="?force=download" class="btn btn-default">Forcer le téléchargement des paquets</a><br>
+        </div>
+      </div>
+      <div class="panel panel-default" style="width:40%;position:relative">
+        <div class="panel-heading">Logs</div>
+        <div class="panel-body">
+          <a href="?display=syslog" class="btn btn-default">Fichier syslog</a>
+        </div>
+      </div>
+      <div class="panel panel-default" style="left:45%;top:32%;width:53%;height:50%;position:absolute">
+        <div class="panel-heading">Console</div>
+        <div class="panel-body">
+          <code style="height:100%"></code>
+        </div>
+      </div>
     <?php
     if ($_SESSION['login_user'] == "root") {
     	if (!empty($_GET['restart'])) {
-      		shell_exec("/srv/www/scripts/apacheRestart.sh");
-      		header('Location: ./configuration.php?success=true');
+      		$outpout = shell_exec("/srv/www/scripts/apacheRestart.sh");
+          header('Location: ');
+          ?><div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Parfait!</strong> Le redémarrage d'Apache s'est bien effectué</a>.
+            </div><?php
       		}
      	if (!empty($_GET['force'])) {
-      		shell_exec("/srv/www/scripts/forceDownload.sh");
+      		$outpout = shell_exec("/srv/www/scripts/forceDownload.sh");
+          echo "<pre>$output</pre>";
       		header('Location: ./configuration.php?success=true');
       		}
       	if (!empty($_GET['display'])) {
       		header("Refresh: 1;Location: ./configuration.php?success=true");
-			$output = shell_exec('tail -f /var/log/syslog');
-			echo "<pre>$output</pre>";
+			       $output = shell_exec('tail -f /var/log/syslog');
+			       echo "<pre>$output</pre>";
 			}
     }
     ?>
 
     <!-- Actions -->
-    <a href="?restart=apache" class="btn btn-default">Redémarrer Apache</a><br>
-    <a href="?force=download" class="btn btn-default">Forcer le téléchargement des paquets</a><br>
-    <a href="?display=syslog" class="btn btn-default">Fichier syslog</a>
+
 
 
     </div>

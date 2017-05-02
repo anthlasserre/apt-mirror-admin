@@ -17,8 +17,7 @@
   <!-- HEADER -->
   <div id="header">
   <h1 class="head-title">Mirroir Debian Admin | Control Panel</h1>
-  <p style="text-align:center; margin-top:-10px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
-                                Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+  <p style="text-align:center; margin-top:-10px">Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
                                 Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
   <p class="connect"><?php
   include('./info/userConnected.php');
@@ -43,7 +42,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./index.php">AptMirrorAdmin</a>
+        <a class="navbar-brand" href="./index.php">aptMirrorAdmin</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -73,42 +72,46 @@
 
     <!-- CONTENT -->
     <div id="content">
-
-
-      <div id="installationClient">
-        <h2><i class="fa fa-user"></i> Installation Client</h2>
-        <hr>
-        <p style="text-align:center">Si Debian</p>
-        <div class="btn-group btn-group-justified">
-          <a href="#notInstalled" class="btn btn-default">n'est pas installé</a>
-          <a href="#installed" class="btn btn-default">est déjà installé</a>
-        </div>
-        <hr>
-
-        <div id="notInstalled"></div>
-        <h3>Si Debian n'est pas installé</h3>
-        <p><ul><li>Installer Debian à partir de l’ISO ci-dessous : <a href="http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-8.7.1-amd64-netinst.iso" target="_blank">Debian-8.7.1-amd64.iso</a></li></ul></p>
-        <p><ul><li>Procédez à l’installation puis vous allez arriver à l’étape : «Configurer l’outil de gestion des paquets»</p></li></ul>
-        <p><ul><li>Faites «Oui» à la question «Faut-il utiliser un miroir sur le réseau ?»</p></li></ul>
-        <img src="./images/configurerOutilGestionPaquets.png" alt="Configurer Outil de Gestion de Paquets - 1ère étape" width=90% />
-        <p><ul><li>Remontez tout en haut de la liste des pays pour arriver à « Saisie manuelle » et saisissez l’adresse IP « 192.168.0.31 » puis continuer et laisser les paramètres par défaut.</p></li></ul>
-        <p>Voilà ça y est votre dépôt est configuré pour votre machine client.</p>
-        <hr>
-
-        <div id="installed"></div>
-        <h3>Si Debian est déjà installé</h3>
-        <p><ul><li>Si vous avez déjà installer votre Debian, vous pouvez toujours modifier le fichier «sources.list» pour rajouter notre Dépôt Local Debian.</li></ul></p>
-        <p class="code">nano /etc/apt/sources.list</p>
-        <p><ul><li>Si une ligne CD apparaît, vous n’en avez plus besoin, alors commentez le avec «#».</p></li></ul>
-        <p><ul><li>Ajouter au fichier sources.list</p></li></ul>
-        <p class="code">deb http://192.168.0.31/debian jessie main contrib non-free</p>
-        <p><ul><li>Et voilà, vous n’avez plus qu’à mettre à jour vos paquets premièrement</p></li></ul>
-        <p class="code">apt-get update</p>
-        <p>Et désormais lorsque vous voulez télécharger un paquet quelqu’il soit, vous aurez un téléchargement rapide et efficace depuis votre Dépôt Local Debian.</p>
-        <hr>
+      <div class="panel panel-default">
+  <div class="panel-heading"><h2><i class="fa fa-user"></i> Installation Client</h2></div>
+  <div class="panel-body">
+    <div id="installationClient">
+      <p style="text-align:center">Si Debian</p>
+      <div class="btn-group btn-group-justified">
+        <a href="#notInstalled" class="btn btn-default">n'est pas installé</a>
+        <a href="#installed" class="btn btn-default">est déjà installé</a>
       </div>
+      <hr>
 
+      <div id="notInstalled"></div>
+      <h3>Si Debian n'est pas installé</h3>
+      <p><ul><li>Installer Debian à partir de l’ISO ci-dessous : <a href="http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-8.7.1-amd64-netinst.iso" target="_blank">Debian-8.7.1-amd64.iso</a></li></ul></p>
+      <p><ul><li>Procédez à l’installation puis vous allez arriver à l’étape : «Configurer l’outil de gestion des paquets»</p></li></ul>
+      <p><ul><li>Faites «Oui» à la question «Faut-il utiliser un miroir sur le réseau ?»</p></li></ul>
+      <img src="./images/configurerOutilGestionPaquets.png" alt="Configurer Outil de Gestion de Paquets - 1ère étape" width=90% />
+      <p><ul><li>Remontez tout en haut de la liste des pays pour arriver à « Saisie manuelle » et saisissez l’adresse IP « 192.168.0.31 » puis continuer et laisser les paramètres par défaut.</p></li></ul>
+      <p>Voilà ça y est votre dépôt est configuré pour votre machine client.</p>
+      <hr>
+
+      <div id="installed"></div>
+      <h3>Si Debian est déjà installé</h3>
+      <p><ul><li>Si vous avez déjà installer votre Debian, vous pouvez toujours modifier le fichier «sources.list» pour rajouter notre Dépôt Local Debian.</li></ul></p>
+      <code>nano /etc/apt/sources.list</code>
+      <p><ul><li>Si une ligne CD apparaît, vous n’en avez plus besoin, alors commentez le avec «#».</p></li></ul>
+      <p><ul><li>Ajouter au fichier sources.list</p></li></ul>
+      <code>deb http://192.168.0.31/debian jessie main contrib non-free</code>
+      <p><ul><li>Et voilà, vous n’avez plus qu’à mettre à jour vos paquets premièrement</p></li></ul>
+      <code>apt-get update</code>
+      <p>Et désormais lorsque vous voulez télécharger un paquet quelqu’il soit, vous aurez un téléchargement rapide et efficace depuis votre Dépôt Local Debian.</p>
+      <hr>
     </div>
+
+  </div>
+  </div>
+</div>
+
+
+
     <div id="space">
     </div>
     <!-- FOOTER -->
