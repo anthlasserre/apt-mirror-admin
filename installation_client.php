@@ -48,7 +48,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="./index.php">Accueil</span></a></li>
+          <li><a href="./index.php">Accueil</a></li>
           <li><a href="./configuration.php">Configuration</a></li>
           <li class="dropdown">
             <a href="./installation.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Installation <span class="caret"></span></a>
@@ -65,7 +65,7 @@
           <button type="submit" class="btn btn-default">Rechercher</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="./contact.php">Contact <span class="sr-only">(current)</a></li>
+          <li><a href="./contact.php">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -74,89 +74,47 @@
     <!-- CONTENT -->
     <div id="content">
 
-      <!-- ========================================= -->
-  		<!-- $CONTACT SECTION                          -->
-  		<!-- ========================================= -->
 
-  			<div id="contactForm">
+      <div id="installationClient">
+        <h2><i class="fa fa-user"></i> Installation Client</h2>
+        <hr>
+        <p style="text-align:center">Si Debian</p>
+        <div class="btn-group btn-group-justified">
+          <a href="#notInstalled" class="btn btn-default">n'est pas installé</a>
+          <a href="#installed" class="btn btn-default">est déjà installé</a>
+        </div>
+        <hr>
 
-  						<!-- CONTACT FORM -->
-  						<div id="contact-panel-2" class="tab-pane">
+        <div id="notInstalled"></div>
+        <h3>Si Debian n'est pas installé</h3>
+        <p><ul><li>Installer Debian à partir de l’ISO ci-dessous : <a href="http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-8.7.1-amd64-netinst.iso" target="_blank">Debian-8.7.1-amd64.iso</a></li></ul></p>
+        <p><ul><li>Procédez à l’installation puis vous allez arriver à l’étape : «Configurer l’outil de gestion des paquets»</p></li></ul>
+        <p><ul><li>Faites «Oui» à la question «Faut-il utiliser un miroir sur le réseau ?»</p></li></ul>
+        <img src="./images/configurerOutilGestionPaquets.png" alt="Configurer Outil de Gestion de Paquets - 1ère étape" width=90% />
+        <p><ul><li>Remontez tout en haut de la liste des pays pour arriver à « Saisie manuelle » et saisissez l’adresse IP « 192.168.0.31 » puis continuer et laisser les paramètres par défaut.</p></li></ul>
+        <p>Voilà ça y est votre dépôt est configuré pour votre machine client.</p>
+        <hr>
 
-  							<!-- RESULTS MESSAGES -->
+        <div id="installed"></div>
+        <h3>Si Debian est déjà installé</h3>
+        <p><ul><li>Si vous avez déjà installer votre Debian, vous pouvez toujours modifier le fichier «sources.list» pour rajouter notre Dépôt Local Debian.</li></ul></p>
+        <p class="code">nano /etc/apt/sources.list</p>
+        <p><ul><li>Si une ligne CD apparaît, vous n’en avez plus besoin, alors commentez le avec «#».</p></li></ul>
+        <p><ul><li>Ajouter au fichier sources.list</p></li></ul>
+        <p class="code">deb http://192.168.0.31/debian jessie main contrib non-free</p>
+        <p><ul><li>Et voilà, vous n’avez plus qu’à mettre à jour vos paquets premièrement</p></li></ul>
+        <p class="code">apt-get update</p>
+        <p>Et désormais lorsque vous voulez télécharger un paquet quelqu’il soit, vous aurez un téléchargement rapide et efficace depuis votre Dépôt Local Debian.</p>
+        <hr>
+      </div>
 
-  							<!-- #CONTACT FORM -->
-  							<form action="./include/contact/request.php" id="message-form" role="form" class="contact-form" method="post">
-  								<div class="row form-list">
-
-  									<!-- NAME -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Nom *</label>
-  										<input type="text" name="contact_name" class="form-control" required>
-  									</div>
-
-  									<!-- EMAIL -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Email *</label>
-  										<input type="email" name="contact_email" class="form-control" required>
-  									</div>
-
-  									<!-- SUBJECT -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Sujet</label>
-  										<input type="text" name="contact_subject" class="form-control">
-  									</div>
-
-  									<div class="col-xs-12">
-  										<label class="bold text-capitalize">Message *</label>
-  										<textarea name="contact_message" class="form-control" rows="15" required></textarea>
-  									</div>
-
-  									<!-- CAPTCHA & SUBMIT -->
-  									<div class="col-xs-12">
-
-  										<div class="inline-block captcha-holder">
-  											<input type="text" name="#" class="captcha-number" value="1" readonly> +
-  											<input type="text" name="#" class="captcha-number" value="1" readonly> =
-  											<input id="captcha" class="captcha form-control" type="text" name="captcha" maxlength="2" required>
-  										</div><!--
-  										--><input type="submit" class="btn btn--main-inverted" value="Submit message">
-  									</div>
-  								</div>
-  							</form>
-
-  						</div>
-
-  					</div>
-
-  				</div>
-
+    </div>
+    <div id="space">
     </div>
     <!-- FOOTER -->
     <div id="footer">
-      <hr/>
+      <hr>
       <p style="text-align:center; font-style: italic;">Le Mirroir Debian a été installé au GRETA par <a href="https://anthonylasserre.com" target="_blank">Anthony LASSERRE</a>, étudiant BTS SIO Promo2015
     </div>
-
-    <!-- ========================================= -->
-		<!-- $SCRIPTS                                  -->
-		<!-- ========================================= -->
-
-		<!-- #LIBS -->
-		<script src="js/libs/jquery-latest.min.js"></script>
-		<script src="js/libs/modernizr-latest.min.js"></script>
-		<script src="js/libs/bootstrap.min.js"></script>
-
-		<!-- #PLUGINS -->
-		<script src="js/plugins/jquery.malihu.PageScroll2id.min.js"></script>
-		<script src="js/plugins/jquery.shuffle.min.js"></script>
-		<script src="js/plugins/jquery.sticky-kit.min.js"></script>
-		<script src="js/plugins/jquery.magnific-popup.min.js"></script>
-		<script src="js/plugins/jquery.quovolver.min.js"></script>
-		<script src="js/plugins/jquery.inview.min.js"></script>
-		<script src="js/plugins/jquery.countTo.min.js"></script>
-
-		<!-- #CUSTOM -->
-		<script src="js/script.js"></script>
   </body>
 </html>

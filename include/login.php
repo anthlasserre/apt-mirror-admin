@@ -28,40 +28,76 @@
 
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
-    <title>Mirroir Debian GRETA</title>
-    <link rel="icon" type="image/png" href="../images/aptMirrorLogo.png" />
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css">
-  </head>
-  <body>
+<head>
+  <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
+  <title>Mirroir Debian Admin | Control Panel</title>
+  <link rel="icon" type="image/png" href="../images/aptMirrorLogo.png" />
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootswatch_solar.css">
+  <link rel="stylesheet" href="../css/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/font-awesome/font-awesome.css">
+</head>
+<body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- HEADER -->
-    <div id="header">
-    <h1>Bienvenue sur le Mirroir Debian du GRETA</h1>
-    <p style="text-align:center">Cette page permet de visualiser le fonctionnement et la configuration du Mirroir Debian</p>
-    <p class="connect"><?php
-    include('./info/userConnected.php');
-    if ($_SESSION['login_user'] == "root") {
-      echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
-      ?><p class="connect"><a href="./logout.php">Se déconnecter</a></p>
-    <?php }
-    else {
-      ?><p class="connect"><a href="./login.php">Se connecter</a></p><?php
-    }
-    ?>
+  <!-- HEADER -->
+  <div id="header">
+  <h1 class="head-title">Mirroir Debian Admin | Control Panel</h1>
+  <p style="text-align:center; margin-top:-10px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
+                                Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+                                Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
+  <p class="connect"><?php
+  include('../info/userConnected.php');
+  if ($_SESSION['login_user'] == "root") {
+    echo 'Bonjour ' . $_SESSION['login_user'] . '<br>';
+    ?><p class="connect"><a href="./logout.php">Se déconnecter</a></p>
+  <?php }
+  else {
+    ?><p class="connect"><a href="./login.php">Se connecter</a></p><?php
+  }
+  ?>
 
-    <!-- MENU -->
-    <ul id="menu_horizontal">
-      <li class="bouton_gauche"><i class="fa fa-home"></i> <a href="../index.php">Accueil</a></li>
-      <li class="bouton_gauche"><i class="fa fa-cogs"></i> <a href="../configuration.php">Configuration</a></li>
-      <li class="bouton_gauche"><i class="fa fa-wrench"></i> <a href="../installation.php">Installation</a></li>
-      <li class="bouton_droite"><i class="fa fa-envelope"></i> <a href="../contact.php">Contact</a></li>
-    </ul>
-    <hr/>
+
+
+  <!-- MENU -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.php">AptMirrorAdmin</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.php">Accueil</span></a></li>
+          <li><a href="../configuration.php">Configuration</a></li>
+          <li class="dropdown">
+            <a href="../installation.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Installation <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="../installation_client.php">Installation Client</a></li>
+              <li><a href="../installation_serveur.php">Installation Serveur</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Rechercher un paquet">
+          </div>
+          <button type="submit" class="btn btn-default">Rechercher</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./contact.php">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
     <!-- CONTENT -->
     <div id="content">
