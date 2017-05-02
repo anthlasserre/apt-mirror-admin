@@ -45,8 +45,7 @@
   <!-- HEADER -->
   <div id="header">
   <h1 class="head-title">Mirroir Debian Admin | Control Panel</h1>
-  <p style="text-align:center; margin-top:-10px">Cette page permet de visualiser le fonctionnement et de configurer le serveur Mirroir Debian<br>
-                                Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
+  <p style="text-align:center; margin-top:-10px">Pour contribuer au développement de cet outil ayant l'objectif de devenir un jour un paquet Debian<br>
                                 Aller sur le repository <b><a href="https://github.com/anthlasserre/aptMirrorAdmin" target="_blank"><i class="fa fa-github"></i></a></b></p>
   <p class="connect"><?php
   include('../info/userConnected.php');
@@ -71,7 +70,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.php">AptMirrorAdmin</a>
+        <a class="navbar-brand" href="../index.php">aptMirrorAdmin</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
