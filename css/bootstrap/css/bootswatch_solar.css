@@ -3466,11 +3466,11 @@ margin-right:5px
 margin-left:3px
 }
 .jumbotron{
-height: 430px;padding-top:30px;padding-bottom:30px;padding-left:30px;padding-right:30px;margin-bottom:30px;color:inherit;background-color:#073642
+height: 450px;padding-top:30px;padding-bottom:30px;padding-left:30px;padding-right:30px;margin-bottom:30px;color:inherit;background-color:#073642;background-image:url("/images/backgroundHome.mp4");
 }
 .jumbotron h1,.jumbotron .h1{
 color:inherit;
-margin-top: 150px;
+margin-top: 170px;
 }
 .jumbotron p{
 margin-bottom:15px;font-size:21px;font-weight:200
@@ -3794,7 +3794,7 @@ margin-top:0;margin-bottom:0;font-size:16px;color:inherit
 color:inherit
 }
 .panel-footer{
-padding:10px 15px;background-color:#073642;border-top:1px solid #073642;border-bottom-right-radius:3px;border-bottom-left-radius:3px
+padding:10px 15px;background-color:#073642;border-top:1px solid #073642;border-bottom-right-radius:3px;border-bottom-left-radius:3px;clear:both
 }
 .panel>.list-group,.panel>.panel-collapse>.list-group{
 margin-bottom:0
