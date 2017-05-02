@@ -2335,7 +2335,7 @@ a.btn.disabled,fieldset[disabled] a.btn{
 pointer-events:none
 }
 .btn-default{
-color:#ffffff;background-color:#586e75;border-color:#586e75
+color:#ffffff;background-color:#586e75;border-color:#586e75;
 }
 .btn-default:focus,.btn-default.focus{
 color:#ffffff;background-color:#425358;border-color:#212a2c
@@ -4603,5 +4603,5 @@ color:#839496
 .connect {
   text-align: right;
   margin-right: 25px;
-  margin-top: -30px;
+  margin-top: -10px;
 }
