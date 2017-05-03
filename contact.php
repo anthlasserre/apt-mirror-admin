@@ -57,9 +57,9 @@
             </ul>
           </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="./include/search.php" method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Rechercher un paquet">
+            <input type="text" class="form-control" name="package" placeholder="Rechercher un paquet" required>
           </div>
           <button type="submit" class="btn btn-default">Rechercher</button>
         </form>
@@ -76,63 +76,51 @@
       <!-- ========================================= -->
   		<!-- $CONTACT SECTION                          -->
   		<!-- ========================================= -->
+      <div class="panel panel-default">
+        <div class="panel-heading">Contact</div>
+        <div class="panel-body">
+            <form class="form-horizontal" action="./include/contact/request.php">
+              <fieldset>
+                <div class="form-group">
+                  <label for="inputSmall" class="col-lg-2 control-label">Nom*</label>
+                  <div class="col-lg-10">
+                  <input class="form-control input-sm" type="text" name="contact_name" id="inputSmall" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">Email*</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail" name="contact_email" placeholder="beaugossedu64@hotmail.fr" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label  for="inputSmall" class="col-lg-2 control-label">Sujet*</label>
+                  <div class="col-lg-10">
+                  <input class="form-control input-sm" type="text" id="inputSmall" name="contact_subject" placeholder="Vous avez fait une faute d'orthographe... Ce serait bien de faire ça..." required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="textArea" class="col-lg-2 control-label">Message*</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" name="contact_message" id="textArea" required></textarea>
+                    <span class="help-block">Ecrivez dont votre demande.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
 
-  			<div id="contactForm">
-
-  						<!-- CONTACT FORM -->
-  						<div id="contact-panel-2" class="tab-pane">
-
-  							<!-- RESULTS MESSAGES -->
-
-  							<!-- #CONTACT FORM -->
-  							<form action="./include/contact/request.php" id="message-form" role="form" class="contact-form" method="post">
-  								<div class="row form-list">
-
-  									<!-- NAME -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Nom *</label>
-  										<input type="text" name="contact_name" class="form-control" required>
-  									</div>
-
-  									<!-- EMAIL -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Email *</label>
-  										<input type="email" name="contact_email" class="form-control" required>
-  									</div>
-
-  									<!-- SUBJECT -->
-  									<div class="col-xs-12 col-md-6 col-lg-4">
-  										<label class="bold text-capitalize">Sujet</label>
-  										<input type="text" name="contact_subject" class="form-control">
-  									</div>
-
-  									<div class="col-xs-12">
-  										<label class="bold text-capitalize">Message *</label>
-  										<textarea name="contact_message" class="form-control" rows="15" required></textarea>
-  									</div>
-
-  									<!-- CAPTCHA & SUBMIT -->
-  									<div class="col-xs-12">
-
-  										<div class="inline-block captcha-holder">
-  											<input type="text" name="#" class="captcha-number" value="1" readonly> +
-  											<input type="text" name="#" class="captcha-number" value="1" readonly> =
-  											<input id="captcha" class="captcha form-control" type="text" name="captcha" maxlength="2" required>
-  										</div><!--
-  										--><input type="submit" class="btn btn--main-inverted" value="Submit message">
-  									</div>
-  								</div>
-  							</form>
-
-  						</div>
-
-  					</div>
-
-  				</div>
 
     </div>
     <!-- FOOTER -->
-    <div id="footer">
+    <div class="panel-footer">
       <hr/>
       <p style="text-align:center; font-style: italic;">Le Mirroir Debian a été installé au GRETA par <a href="https://anthonylasserre.com" target="_blank">Anthony LASSERRE</a>, étudiant BTS SIO Promo2015
     </div>

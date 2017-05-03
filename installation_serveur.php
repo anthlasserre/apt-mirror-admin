@@ -57,9 +57,9 @@
             </ul>
           </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="./include/search.php" method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Rechercher un paquet">
+            <input type="text" class="form-control" name="package" placeholder="Rechercher un paquet" required>
           </div>
           <button type="submit" class="btn btn-default">Rechercher</button>
         </form>
@@ -122,7 +122,7 @@
     <div id="space">
     </div>
     <!-- FOOTER -->
-    <div id="footer">
+    <div class="panel-footer">
   <hr>
   <p style="text-align:center; font-style: italic;">Le Mirroir Debian a été installé au GRETA par <a href="https://anthonylasserre.com" target="_blank">Anthony LASSERRE</a>, étudiant BTS SIO Promo2015
 </div>
