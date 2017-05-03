@@ -1,5 +1,7 @@
+<img src="http://aptmirror/images/aptMirrorAdminLogo.png" alt="aptMirrorAdmin Logo" style="text-align:center"/>
+
 # aptMirrorAdmin
-Drive your apt-mirror from a web admin interface.
+An unusual tool allowing you to control your debian mirror safely.
 
 Firstly, apt-mirror is a small tool that provides ability to mirror any parts (or even all) of Debian and Ubuntu GNU/Linux distributions or any other apt sources which typically provided by open source developers.
 
