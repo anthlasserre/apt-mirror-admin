@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/anthlasserre/aptMirrorAdmin/master/images/aptMirrorAdminLogo.png" alt="aptMirrorAdmin Logo" height=100px style="text-align:center"/>
+<img src="https://raw.githubusercontent.com/anthlasserre/aptMirrorAdmin/master/images/aptMirrorAdminLogo.png" alt="aptMirrorAdmin Logo" height=100px align="middle"/>
 
 # aptMirrorAdmin
 An unusual tool allowing you to control your debian mirror safely.
