@@ -31,7 +31,7 @@
 <head>
   <meta name="keywords" content="mirroir, aptmirror, mirror, debian, packages, amd64">
   <title>aptMirrorAdmin - Piloter votre mirroir debian en toute sécurité.</title>
-  <link rel="icon" type="image/png" href="./../images/aptMirrorLogo.png" />
+  <link rel="icon" type="image/png" href="./../images/aptMirrorAdminLogo.png" />
   <link rel="stylesheet" type="text/css" href="./../css/bootstrap/css/bootswatch_solar.css">
   <link rel="stylesheet" href="./../css/font-awesome/font-awesome.min.css">
   <link rel="stylesheet" href="./../css/font-awesome/font-awesome.css">
@@ -70,29 +70,29 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.php">aptMirrorAdmin</a>
+        <a class="navbar-brand" href="./../index.php">aptMirrorAdmin</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="../index.php">Accueil</span></a></li>
-          <li><a href="../configuration.php">Configuration</a></li>
+          <li><a href="./../index.php">Accueil</span></a></li>
+          <li><a href="./../configuration.php">Configuration</a></li>
           <li class="dropdown">
-            <a href="../installation.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Installation <span class="caret"></span></a>
+            <a href="./../installation.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Installation <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="../installation_client.php">Installation Client</a></li>
-              <li><a href="../installation_serveur.php">Installation Serveur</a></li>
+              <li><a href="./../installation_client.php">Installation Client</a></li>
+              <li><a href="./../installation_serveur.php">Installation Serveur</a></li>
             </ul>
           </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="./search.php" method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Rechercher un paquet">
+            <input type="text" class="form-control" name="package" placeholder="Rechercher un paquet" required>
           </div>
           <button type="submit" class="btn btn-default">Rechercher</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="./contact.php">Contact</a></li>
+          <li><a href="./../contact.php">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -101,27 +101,27 @@
     <!-- CONTENT -->
     <div id="content">
       <div id="login" align = "center">
-         <div style = "width:330px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Connexion Admin</b></div>
+        <div class="panel panel-default" style="margin-left:300px;margin-right:300px">
+          <div class="panel-heading">Connexion Admin</div>
+          <div class="panel-body" style="padding-left:50px;padding-right:50px">
 
-            <div style = "margin:30px">
+               <form action = "" method = "post" class="form-horizontal">
+                 <fieldset>
 
-               <form action = "" method = "post">
-                  <label>Utilisateur  : </label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Mot de passe  : </label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = "Se connecter"/><br />
+                   <div class="form-group">
+                  <label class="control-label" for="inputSmall">Utilisateur  : </label>
+                  <input type="text" name="username" class="form-control input-sm" id="inputSmall" placeholder="utilisateur.."/><br /><br />
+                  <label class="control-label" for="inputPassword">Mot de passe  : </label>
+                  <input type = "password" name="password" class="form-control" id="inputPassword" placeholder="mot de passe.."/><br/><br />
+                  <input type = "submit" class="btn btn-primary" value = "Se connecter"/><br />
                </form>
-
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error ;?></div>
-
-            </div>
-
-         </div>
+             </div>
+           </div>
 
       </div>
     </div>
     <!-- FOOTER -->
-    <div id="footer">
+    <div class="panel-footer">
       <hr/>
       <p style="text-align:center; font-style: italic;">Le Mirroir Debian a été installé au GRETA par <a href="https://anthonylasserre.com" target="_blank">Anthony LASSERRE</a>, étudiant BTS SIO Promo2015
     </div>
