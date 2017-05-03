@@ -8,3 +8,5 @@ apacheVersion=`(echo '<?php $apacheVersion="' && apache2 -v && echo '"; ?>') > /
 mysqlVersion=`(echo '<?php $mysqlVersion="' && mysql -V && echo '"; ?>') > /srv/www/info/mysqlVersion.php`
 # Récupérer les informations de phpmyadmin
 phpmyadminVersion=`(echo '<?php $phpmyadminVersion="' && mysql -V && echo '"; ?>') > /srv/www/info/phpmyadminVersion.php`
+# Récupérer la liste de tous les paquets présents dans le mirroir
+allPackages=`(echo '<?php $allPackages="' && cat /srv/apt-mirror/var/ALL && echo '"; ?>') > /srv/www/info/allPackages.php`
