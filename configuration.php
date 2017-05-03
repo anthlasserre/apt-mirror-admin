@@ -78,7 +78,7 @@
         <div class="panel-heading">Apache<i style="text-align:right;color:green;padding-left:20px;"class="fa fa-toggle-on fa-lg"></i></div>
         <div class="panel-body">
           <a href="?restart=apache" class="btn btn-default">Redémarrer Apache</a>
-          <a href="?display=apacheErrorLog" class="btn btn-default">Fichier error.log</a>
+          <a href="?apacheErrorLog=run" class="btn btn-default">Fichier error.log</a>
         </div>
       </div>
       <div class="panel panel-default" style="width:100%;position:relative">
@@ -90,7 +90,7 @@
       <div class="panel panel-default" style="width:100%;position:relative">
         <div class="panel-heading">Serveur</div>
         <div class="panel-body">
-          <a href="?display=syslog" class="btn btn-default">Fichier syslog</a>
+          <a href="?syslog=run" class="btn btn-default">Fichier syslog</a>
         </div>
       </div>
       <?php
@@ -108,23 +108,50 @@
           echo "<pre>$output</pre>";
       		header('Location: ./configuration.php?success=true');
       		}
-      	if (!empty($_GET['display'])) {
-      		header("Refresh: 1;Location: ./configuration.php?success=true");
-			       $output = shell_exec('tail -f /var/log/syslog');
-			       echo "<pre>$output</pre>";
-			}
-    }
-    ?>
+      if (!empty($_GET['apacheErrorLog'])) {
+            // $file='/var/log/apache2/error.log';
+            // $contenu=file_get_contents($file);
+            $fp = fopen ('/var/log/apache2/error.log','r');
+              $page = '';
+              while (!feof ($fp)) 
+                $page = fgets ($fp, 4096) . $page . '<br />';
+              fclose ($fp);
+            echo '</div><div id="action" style="margin-left:45%;margin-right:0px">
+            <div class="panel panel-default">
+              <div class="panel-heading">Console</div>
+              <div class="panel-body">
+                <code style="height:80%">' . '/var/log/apache2/error.log: <pre>' . $page . '</pre>';
+                ?>
+              </code>
+              </div>
+            </div>
+            </div>
+            <?php
 
-    </div>
-    <div id="action" style="margin-left:45%;margin-right:0px">
-    <div class="panel panel-default">
-      <div class="panel-heading">Console</div>
-      <div class="panel-body">
-        <code style="height:80%"></code>
-      </div>
-    </div>
-    </div>
+        }
+
+      if (!empty($_GET['syslog'])) {
+            $fp = fopen ('/var/log/syslog','r');
+              $page = '';
+              while (!feof ($fp))
+                $page = fgets ($fp, 4096) . $page . '<br />';
+              fclose ($fp);
+
+            echo '</div><div id="action" style="margin-left:45%;margin-right:0px">
+            <div class="panel panel-default">
+              <div class="panel-heading">Console</div>
+              <div class="panel-body">
+                <code style="height:80%">' . 'Log: <br><pre>' . $page . '</pre>';
+                ?>
+              </code>
+              </div>
+            </div>
+            </div>
+            <?php
+          }
+      } ?>
+
+
 
 	</div>
     <!-- FOOTER -->
