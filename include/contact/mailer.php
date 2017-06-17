@@ -163,7 +163,7 @@ class Mailer {
 	 * @access public
 	 * @return bool
 	 */
-
+	function clearHireData(){
 		$this->hireme_data['hireme_timeframe'] = str_replace(array('1','2','3','4','5','6'), array(
 				"As soon as possible (rush job)",
 				"Within 1 week (rush job)",
@@ -236,7 +236,7 @@ class Mailer {
 	 * @access public
 	 * @return bool
 	 */
-	 
+
 	/**
 	 * Get response
 	 *
